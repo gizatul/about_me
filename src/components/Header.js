@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
 	return (
-		<Navbar bg="light" expand="false">
+		<Navbar bg="light" expand="false" className="mb-3">
 			<Container>
 				<Navbar.Toggle aria-controls="offcanvasNavbar-expand-false" />
 				<Navbar.Brand as={Link} to="/">

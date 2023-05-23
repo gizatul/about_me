@@ -9,7 +9,7 @@ function App() {
 		<Router>
 			<Header />
 			<Routes>
-				<Route path="/" element={<Postlist />} />
+				<Route path="/" element={<Postlist posts={[1, 2, 3]} />} />
 				<Route path="/about" element={<About />} />
 				<Route path="/user" element={<User />} />
 			</Routes>
