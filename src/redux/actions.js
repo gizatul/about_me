@@ -1,5 +1,4 @@
-import { FETCH_POSTS, HIDE_LOADER, REQUEST_POSTS, SHOW_LOADER } from './types';
-import axios from 'axios';
+import { REQUEST_COMMENTS, HIDE_LOADER, REQUEST_POSTS, SHOW_LOADER } from './types';
 
 export function showLoader() {
 	return {
@@ -15,4 +14,8 @@ export function hideLoader() {
 
 export function fetchPosts() {
 	return { type: REQUEST_POSTS };
+}
+
+export function fetchComments(postId) {
+	return { type: REQUEST_COMMENTS, payload: postId };
 }

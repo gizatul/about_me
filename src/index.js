@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import { compose, createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -12,7 +11,7 @@ import { sagaWatcher } from './redux/sagas';
 
 const saga = createSagaMiddleware();
 
-const store = createStore(reducer, compose(applyMiddleware(thunk, saga), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+const store = createStore(reducer, compose(applyMiddleware(saga), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
 
 saga.run(sagaWatcher);
 

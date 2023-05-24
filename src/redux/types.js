@@ -1,4 +1,6 @@
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const REQUEST_POSTS = 'REQUEST_POSTS';
+export const FETCH_COMMENTS = 'FETCH_COMMENTS';
+export const REQUEST_COMMENTS = 'REQUEST_COMMENTS';
 export const SHOW_LOADER = 'SHOW_LOADER';
 export const HIDE_LOADER = 'HIDE_LOADER';

@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import LoadingSpinner from './Spinner';
 
-export default function PostList() {
+const PostList = () => {
 	const dispatch = useDispatch();
 	const posts = useSelector((state) => state.posts.posts);
 	const loading = useSelector((state) => state.loading.loading);
@@ -13,6 +13,7 @@ export default function PostList() {
 	useEffect(() => {
 		dispatch(fetchPosts());
 	}, [dispatch]);
+	console.log('render PostList');
 
 	return (
 		<Container>
@@ -20,4 +21,6 @@ export default function PostList() {
 			{loading ? <LoadingSpinner /> : <>{posts.length ? posts.map((post) => <SinglePost post={post} key={post.id} />) : <p>Постов пока нет</p>}</>}
 		</Container>
 	);
-}
+};
+
+export default PostList;

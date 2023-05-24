@@ -1,20 +1,22 @@
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import avatar from '../img/avatar.png';
-
-// const CommentsList = ({ comments }) => {
-// 	return (
-// 		<ul>
-// 			{comments.map((comment, index) => (
-// 				<li key={index}>
-// 					<strong>{comment.title}</strong>: {comment.text}
-// 				</li>
-// 			))}
-// 		</ul>
-// 	);
-// };
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchComments } from '../redux/actions';
+import Comment from './Comment';
 
 export default function SinglePost(post) {
-	const { userId, title, body } = post.post;
+	const dispatch = useDispatch();
+	const comments = useSelector((state) => {
+		console.log(state);
+
+		return state.comments.comments;
+	});
+
+	const handleToggleComments = (postId) => {
+		dispatch(fetchComments(postId));
+	};
+
+	const { userId, title, body, id } = post.post;
 	return (
 		<Card className="mb-3">
 			<Card.Body>
@@ -25,7 +27,12 @@ export default function SinglePost(post) {
 				<img src={avatar} alt="Аватар автора" className="rounded-circle me-2" width={30} height={30} />
 				<span>{userId}</span>
 			</Card.Footer>
-			{/* <CommentsList comments={post.comments} /> */}
+			<Button variant="light" onClick={() => handleToggleComments(id)}>
+				Комментарии
+			</Button>
+			{comments.map((comment) => (
+				<Comment comment={comment} key={comment.id} />
+			))}
 		</Card>
 	);
 }
