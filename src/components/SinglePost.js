@@ -1,5 +1,5 @@
-import { Col, Card } from 'react-bootstrap';
-import avatar from './img/avatar.png';
+import { Card } from 'react-bootstrap';
+import avatar from '../img/avatar.png';
 
 // const CommentsList = ({ comments }) => {
 // 	return (
@@ -13,16 +13,17 @@ import avatar from './img/avatar.png';
 // 	);
 // };
 
-export default function SinglePost({ post }) {
+export default function SinglePost(post) {
+	const { userId, title, body } = post.post;
 	return (
 		<Card className="mb-3">
 			<Card.Body>
-				<Card.Title>Title {post}</Card.Title>
-				<Card.Text>Texttext</Card.Text>
+				<Card.Title>{title}</Card.Title>
+				<Card.Text>{body}</Card.Text>
 			</Card.Body>
 			<Card.Footer>
 				<img src={avatar} alt="Аватар автора" className="rounded-circle me-2" width={30} height={30} />
-				<span>{post}</span>
+				<span>{userId}</span>
 			</Card.Footer>
 			{/* <CommentsList comments={post.comments} /> */}
 		</Card>

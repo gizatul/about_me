@@ -1,7 +1,7 @@
 import Header from './components/Header';
-import Postlist from './Postlist';
-import About from './About';
-import User from './User';
+import PostList from './components/PostList';
+import About from './components/About';
+import User from './components/User';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
 		<Router>
 			<Header />
 			<Routes>
-				<Route path="/" element={<Postlist posts={[1, 2, 3]} />} />
+				<Route path="/" element={<PostList />} />
 				<Route path="/about" element={<About />} />
 				<Route path="/user" element={<User />} />
 			</Routes>

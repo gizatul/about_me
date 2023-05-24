@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Image, Card, Alert } from 'react-bootstrap';
-import avatar from './img/avatar.png';
+import avatar from '../img/avatar.png';
 
 export default function AboutPage() {
 	return (
