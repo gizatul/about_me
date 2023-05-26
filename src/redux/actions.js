@@ -1,4 +1,4 @@
-import { REQUEST_COMMENTS, HIDE_LOADER, REQUEST_POSTS, SHOW_LOADER } from './types';
+import { REQUEST_COMMENTS, HIDE_LOADER, REQUEST_POSTS, SHOW_LOADER, SHOW_LOADER_COMMENTS, HIDE_LOADER_COMMENTS } from './types';
 
 export function showLoader() {
 	return {
@@ -18,4 +18,16 @@ export function fetchPosts() {
 
 export function fetchComments(postId) {
 	return { type: REQUEST_COMMENTS, payload: postId };
+}
+
+export function showLoaderComments() {
+	return {
+		type: SHOW_LOADER_COMMENTS,
+	};
+}
+
+export function hideLoaderComments() {
+	return {
+		type: HIDE_LOADER_COMMENTS,
+	};
 }

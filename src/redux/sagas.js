@@ -1,7 +1,7 @@
 import { takeEvery, call, put, delay } from 'redux-saga/effects';
 import { FETCH_COMMENTS, FETCH_POSTS, REQUEST_COMMENTS, REQUEST_POSTS } from './types';
 import axios from 'axios';
-import { showLoader, hideLoader } from './actions';
+import { showLoader, hideLoader, showLoaderComments, hideLoaderComments } from './actions';
 
 function* sagaWorkerPosts() {
 	try {
@@ -16,17 +16,17 @@ function* sagaWorkerPosts() {
 }
 
 async function fetchPosts() {
-	const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=15');
+	const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=5');
 	return await response.data;
 }
 
 function* sagaWorkerComments(action) {
 	try {
-		yield put(showLoader());
+		yield put(showLoaderComments());
 		const payload = yield call(fetchComments, action.payload);
 		yield put({ type: FETCH_COMMENTS, payload });
 		yield delay(500);
-		yield put(hideLoader());
+		yield put(hideLoaderComments());
 	} catch (error) {
 		console.error('Error fetching comments:', error);
 	}

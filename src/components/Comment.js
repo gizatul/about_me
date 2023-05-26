@@ -1,12 +1,13 @@
 import { ListGroup } from 'react-bootstrap';
 
-export default function Comment(comment) {
-	const { id, email, body } = comment.comment;
+export default function Comment(props) {
+	const { comment } = props;
+	const { email, body } = comment;
 
-	console.log(comment);
-
-	<ListGroup.Item key={id}>
-		<h5>{email}</h5>
-		<p>{body}</p>
-	</ListGroup.Item>;
+	return (
+		<ListGroup.Item>
+			<h6>{email}</h6>
+			<p>{body}</p>
+		</ListGroup.Item>
+	);
 }
